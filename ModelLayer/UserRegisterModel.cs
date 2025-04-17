@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModelLayer
 {
-    class UserRegisterModel
+    public class UserRegisterModel
     {
         public string fullName { get; set; }
         [Required, EmailAddress]
