@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BookStore_App_Backend.props" />
+</Project>

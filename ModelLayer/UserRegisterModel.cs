@@ -16,7 +16,6 @@ namespace ModelLayer
         public string password { get; set; }
         [Required, Phone]
         public string mobileNum { get; set; }
-        [Required]
-        public string? role { get; set; } = "User";
+        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ModelLayer;
+using RepoLayer.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,14 @@ namespace BusinessLayer.Interfaces
 {
    public interface IUserService
     {
-        Task<bool> Login(UserLoginModel model);
-        Task<bool> Register(UserRegisterModel model);
+        public Task<User> Login(UserLoginModel model);
+        public Task<bool> Register(UserRegisterModel model);
+        public  void DeleteUser(int id);
+        public User GetUserByEmail(string email);
+        public Task<bool> UpdateUser(int userId, UserRegisterModel model);
+        public string ForgetPassword(string email);
+        public bool ResetPassword(string Email, ResetPasswordModel model);
+       
     }
+
 }
