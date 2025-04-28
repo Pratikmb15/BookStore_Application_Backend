@@ -1,14 +1,14 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "BookStore_App_Backend",
-    "version": "1.0"
+    "title": "BookStore API",
+    "version": "v1"
   },
   "paths": {
-    "/api/Admin": {
+    "/api/admin": {
       "post": {
         "tags": [
-          "Admin"
+          "admin"
         ],
         "requestBody": {
           "content": {
@@ -36,10 +36,10 @@
         }
       }
     },
-    "/api/Admin/login": {
+    "/api/admin/login": {
       "post": {
         "tags": [
-          "Admin"
+          "admin"
         ],
         "requestBody": {
           "content": {
@@ -67,10 +67,10 @@
         }
       }
     },
-    "/api/Admin/forgot-password": {
+    "/api/admin/forgot-password": {
       "post": {
         "tags": [
-          "Admin"
+          "admin"
         ],
         "requestBody": {
           "content": {
@@ -98,20 +98,10 @@
         }
       }
     },
-    "/api/Admin/set-newpassword/{token}": {
+    "/api/admin/set-newpassword": {
       "post": {
         "tags": [
-          "Admin"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          "admin"
         ],
         "requestBody": {
           "content": {
@@ -139,10 +129,10 @@
         }
       }
     },
-    "/api/User": {
+    "/api/user": {
       "post": {
         "tags": [
-          "User"
+          "user"
         ],
         "requestBody": {
           "content": {
@@ -170,10 +160,10 @@
         }
       }
     },
-    "/api/User/login": {
+    "/api/user/login": {
       "post": {
         "tags": [
-          "User"
+          "user"
         ],
         "requestBody": {
           "content": {
@@ -201,10 +191,10 @@
         }
       }
     },
-    "/api/User/forgot-password": {
+    "/api/user/forgot-password": {
       "post": {
         "tags": [
-          "User"
+          "user"
         ],
         "requestBody": {
           "content": {
@@ -232,20 +222,10 @@
         }
       }
     },
-    "/api/User/set-newpassword/{token}": {
+    "/api/user/set-newpassword": {
       "post": {
         "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          "user"
         ],
         "requestBody": {
           "content": {
@@ -410,6 +390,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter your JWT token below (without 'Bearer ' prefix)",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

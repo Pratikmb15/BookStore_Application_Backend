@@ -1,20 +1,22 @@
 ﻿using BusinessLayer.Interfaces;
 using BusinessLayer.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
+using System.Security.Claims;
 
 namespace BookStore_App_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class userController : ControllerBase
     {
         private readonly IUserService _userService;
         private readonly IAuthService _authService;
         private readonly IEmailService _emailService;
 
-        public UserController(IUserService userService, IAuthService authService, IEmailService emailService)
+        public userController(IUserService userService, IAuthService authService, IEmailService emailService)
         {
             _userService = userService;
             _authService = authService;
@@ -65,18 +67,18 @@ namespace BookStore_App_Backend.Controllers
                 return BadRequest(new ResponseModel<string> { success = false, message = e.Message });
             }
         }
-        [HttpPost("set-newpassword/{token}")]
-        public IActionResult SetNewPassword(string token, [FromBody] ResetPasswordModel model)
+        [Authorize(Roles ="User")]
+        [HttpPost("set-newpassword")]
+        public IActionResult SetNewPassword( [FromBody] ResetPasswordModel model)
         {
             try
             {
-                
-                if (!_authService.ValidateToken(token, out string email))
-                {
-                    return BadRequest(new { success = false, message = "Invalid or expired token." });
-                }
 
-                // 🔑 Reset Password
+             
+
+                var email = User.FindFirstValue(ClaimTypes.Email);
+                Console.WriteLine(email);
+
                 bool isReset = _userService.ResetPassword(email, model);
                 if (!isReset)
                 {
