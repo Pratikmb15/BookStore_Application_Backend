@@ -11,15 +11,16 @@ namespace RepoLayer.Entity
     {
         [Key]
         public int userId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Full name is required")]
         public string fullName { get; set; }
-        [Required,EmailAddress]
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
         public string email { get; set; }
-        [Required]
+        [Required (ErrorMessage ="Password is Required")]
         public string password { get; set; }
-        [Required,Phone]
+        [Required (ErrorMessage ="Phone number is required"),Phone(ErrorMessage ="Invalid Phone Number")]
         public string mobileNum { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Role is required")]
         public string role { get; set; }
     }
 }

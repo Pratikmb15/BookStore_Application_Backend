@@ -129,6 +129,37 @@
         }
       }
     },
+    "/api/Auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/user": {
       "post": {
         "tags": [
@@ -296,23 +327,44 @@
   "components": {
     "schemas": {
       "ForgetPassModel": {
+        "required": [
+          "email"
+        ],
         "type": "object",
         "properties": {
           "email": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "ResetPasswordModel": {
+        "required": [
+          "confirmPassWord",
+          "newPassWord"
+        ],
         "type": "object",
         "properties": {
           "newPassWord": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "confirmPassWord": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TokenRequestModel": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
             "type": "string",
             "nullable": true
           },
-          "confirmPassWord": {
+          "refreshToken": {
             "type": "string",
             "nullable": true
           }
@@ -341,14 +393,15 @@
       "UserRegisterModel": {
         "required": [
           "email",
+          "fullName",
           "mobileNum",
           "password"
         ],
         "type": "object",
         "properties": {
           "fullName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "email": {
             "minLength": 1,

@@ -25,6 +25,16 @@ namespace BookStore_App_Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "Validation Failed",
+                    errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                });
+            }
+
             var result = await _userService.Register(model);
             if (!result)
             {
@@ -36,6 +46,16 @@ namespace BookStore_App_Backend.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserLoginModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "Validation Failed",
+                    errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                });
+            }
+
             try
             {
                 var user = await _userService.Login(model);
@@ -58,6 +78,15 @@ namespace BookStore_App_Backend.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Validation Failed",
+                        errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                    });
+                }
                 string resetLink = _userService.ForgetPassword(model.Email);
                 await _emailService.SendEmailAsync(model.Email, resetLink);
                 return Ok(new ResponseModel<string> { success = true, message = "Reset link sent to your email", data = resetLink });
@@ -74,7 +103,15 @@ namespace BookStore_App_Backend.Controllers
             try
             {
 
-             
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Validation Failed",
+                        errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                    });
+                }
 
                 var email = User.FindFirstValue(ClaimTypes.Email);
                 Console.WriteLine(email);
