@@ -72,7 +72,7 @@ namespace BookStore_App_Backend.Controllers
                     return BadRequest(new { message = "Invalid credentials" });
                 }
                 var token = _authService.GenerateToken(admin);
-                var refreshToken = _authService.GenerateRefreshToken(admin);
+                var refreshToken = _authService.GenerateRefreshToken();
 
                 return Ok(new { success = true, message = "Admin Login Succssfully", data = new { token,refreshToken} });
             }

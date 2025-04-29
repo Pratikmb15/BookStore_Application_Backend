@@ -46,18 +46,18 @@ namespace BookStore_App_Backend.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserLoginModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(new
-                {
-                    success = false,
-                    message = "Validation Failed",
-                    errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
-                });
-            }
-
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Validation Failed",
+                        errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                    });
+                }
+
                 var user = await _userService.Login(model);
                 if (user == null)
                 {
@@ -65,10 +65,12 @@ namespace BookStore_App_Backend.Controllers
                     return BadRequest(new { message = "Invalid credentials" });
                 }
                 var token = _authService.GenerateToken(user);
+                var refreshToken = _authService.GenerateRefreshToken();
 
-                return Ok(new { success = true, message = "User Login Succssfully", data = token });
+                return Ok(new { success = true, message = "User Login Succssfully", data = new { token, refreshToken } });
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
                 return BadRequest(new { message = "Invalid credentials" });
             }
@@ -96,9 +98,9 @@ namespace BookStore_App_Backend.Controllers
                 return BadRequest(new ResponseModel<string> { success = false, message = e.Message });
             }
         }
-        [Authorize(Roles ="User")]
+        [Authorize(Roles = "User")]
         [HttpPost("set-newpassword")]
-        public IActionResult SetNewPassword( [FromBody] ResetPasswordModel model)
+        public IActionResult SetNewPassword([FromBody] ResetPasswordModel model)
         {
             try
             {

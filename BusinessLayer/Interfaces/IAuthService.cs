@@ -12,10 +12,13 @@ namespace BusinessLayer.Interfaces
     {
        public string GenerateToken(User user);
        public string GenerateToken(Admin admin);
-       public bool ValidateToken(string token, out string email);
-        public string GenerateRefreshToken(Admin admin);
+        public string GenerateRefreshToken();
         public ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
-        public string GenerateTokenFromPrincipal(ClaimsPrincipal principal);
-        public string GenerateRefreshTokenFromPrincipal(ClaimsPrincipal principal);
+
+        //public string GenerateRefreshToken(User user);
+        //public string GenerateRefreshToken(Admin admin);
+        //public ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+        //public string GenerateTokenFromPrincipal(ClaimsPrincipal principal);
+        //public string GenerateRefreshTokenFromPrincipal(ClaimsPrincipal principal);
     }
 }
