@@ -1,20 +1,22 @@
 ﻿using BusinessLayer.Interfaces;
 using BusinessLayer.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer;
+using System.Security.Claims;
 
 namespace BookStore_App_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class userController : ControllerBase
     {
         private readonly IUserService _userService;
         private readonly IAuthService _authService;
         private readonly IEmailService _emailService;
 
-        public UserController(IUserService userService, IAuthService authService, IEmailService emailService)
+        public userController(IUserService userService, IAuthService authService, IEmailService emailService)
         {
             _userService = userService;
             _authService = authService;
@@ -23,6 +25,16 @@ namespace BookStore_App_Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "Validation Failed",
+                    errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                });
+            }
+
             var result = await _userService.Register(model);
             if (!result)
             {
@@ -36,6 +48,16 @@ namespace BookStore_App_Backend.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Validation Failed",
+                        errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                    });
+                }
+
                 var user = await _userService.Login(model);
                 if (user == null)
                 {
@@ -43,10 +65,12 @@ namespace BookStore_App_Backend.Controllers
                     return BadRequest(new { message = "Invalid credentials" });
                 }
                 var token = _authService.GenerateToken(user);
+                var refreshToken = _authService.GenerateRefreshToken();
 
-                return Ok(new { success = true, message = "User Login Succssfully", data = token });
+                return Ok(new { success = true, message = "User Login Succssfully", data = new { token, refreshToken } });
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
                 return BadRequest(new { message = "Invalid credentials" });
             }
@@ -56,6 +80,15 @@ namespace BookStore_App_Backend.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Validation Failed",
+                        errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                    });
+                }
                 string resetLink = _userService.ForgetPassword(model.Email);
                 await _emailService.SendEmailAsync(model.Email, resetLink);
                 return Ok(new ResponseModel<string> { success = true, message = "Reset link sent to your email", data = resetLink });
@@ -65,18 +98,26 @@ namespace BookStore_App_Backend.Controllers
                 return BadRequest(new ResponseModel<string> { success = false, message = e.Message });
             }
         }
-        [HttpPost("set-newpassword/{token}")]
-        public IActionResult SetNewPassword(string token, [FromBody] ResetPasswordModel model)
+        [Authorize(Roles = "User")]
+        [HttpPost("set-newpassword")]
+        public IActionResult SetNewPassword([FromBody] ResetPasswordModel model)
         {
             try
             {
-                
-                if (!_authService.ValidateToken(token, out string email))
+
+                if (!ModelState.IsValid)
                 {
-                    return BadRequest(new { success = false, message = "Invalid or expired token." });
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Validation Failed",
+                        errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
+                    });
                 }
 
-                // 🔑 Reset Password
+                var email = User.FindFirstValue(ClaimTypes.Email);
+                Console.WriteLine(email);
+
                 bool isReset = _userService.ResetPassword(email, model);
                 if (!isReset)
                 {

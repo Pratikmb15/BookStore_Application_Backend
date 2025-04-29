@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.AdminController",
+    "ContainingType": "BookStore_App_Backend.Controllers.adminController",
     "Method": "Register",
-    "RelativePath": "api/Admin",
+    "RelativePath": "api/admin",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,9 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.AdminController",
+    "ContainingType": "BookStore_App_Backend.Controllers.adminController",
     "Method": "ForgetPassword",
-    "RelativePath": "api/Admin/forgot-password",
+    "RelativePath": "api/admin/forgot-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -32,9 +32,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.AdminController",
+    "ContainingType": "BookStore_App_Backend.Controllers.adminController",
     "Method": "Login",
-    "RelativePath": "api/Admin/login",
+    "RelativePath": "api/admin/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -48,18 +48,13 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.AdminController",
+    "ContainingType": "BookStore_App_Backend.Controllers.adminController",
     "Method": "SetNewPassword",
-    "RelativePath": "api/Admin/set-newpassword/{token}",
+    "RelativePath": "api/admin/set-newpassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "token",
-        "Type": "System.String",
-        "IsRequired": true
-      },
       {
         "Name": "model",
         "Type": "ModelLayer.ResetPasswordModel",
@@ -69,9 +64,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.UserController",
+    "ContainingType": "BookStore_App_Backend.Controllers.AuthController",
+    "Method": "Refresh",
+    "RelativePath": "api/Auth/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tokenModel",
+        "Type": "ModelLayer.TokenRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.userController",
     "Method": "Register",
-    "RelativePath": "api/User",
+    "RelativePath": "api/user",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -85,9 +96,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.UserController",
+    "ContainingType": "BookStore_App_Backend.Controllers.userController",
     "Method": "ForgetPassword",
-    "RelativePath": "api/User/forgot-password",
+    "RelativePath": "api/user/forgot-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -101,9 +112,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.UserController",
+    "ContainingType": "BookStore_App_Backend.Controllers.userController",
     "Method": "Login",
-    "RelativePath": "api/User/login",
+    "RelativePath": "api/user/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -117,18 +128,13 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.UserController",
+    "ContainingType": "BookStore_App_Backend.Controllers.userController",
     "Method": "SetNewPassword",
-    "RelativePath": "api/User/set-newpassword/{token}",
+    "RelativePath": "api/user/set-newpassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "token",
-        "Type": "System.String",
-        "IsRequired": true
-      },
       {
         "Name": "model",
         "Type": "ModelLayer.ResetPasswordModel",
