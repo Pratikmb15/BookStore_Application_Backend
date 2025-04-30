@@ -35,6 +35,7 @@ namespace BookStore_App_Backend.Controllers
 
             var principal = _authService.GetPrincipalFromExpiredToken(tokenModel.accessToken);
             var email = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            Console.WriteLine(email);
 
             var user = _userService.GetUserByEmail(email);
             if (user == null || user.refreshToken != tokenModel.refreshToken || user.refreshTokenExpiryTime <= DateTime.Now)

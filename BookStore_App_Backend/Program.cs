@@ -22,6 +22,8 @@ builder.Services.AddScoped<IUserRepoServices, UserRepoServices>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAdminRepoService, AdminRepoService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IBookRepoService, BookRepoService>();
+builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<IEmailService, EmailService>();
 
