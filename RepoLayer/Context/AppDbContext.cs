@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RepoLayer.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using RepoLayer.Entity;
 
 namespace RepoLayer.Context
 {
@@ -14,5 +12,6 @@ namespace RepoLayer.Context
 
         public DbSet<User> Users { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
