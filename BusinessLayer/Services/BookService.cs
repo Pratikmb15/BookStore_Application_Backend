@@ -37,6 +37,21 @@ namespace BusinessLayer.Services
             return _bookRepoService.GetBookById(bookId);
         }
 
+        public List<Book> GetBooksByPageNumber(int pageNumber)
+        {
+            return _bookRepoService.GetBooksByPageNumber(pageNumber);
+        }
+
+        public List<Book> SearchBooks(string searchTerm)
+        {
+            return _bookRepoService.SearchBooks(searchTerm);
+        }
+
+        public List<Book> SortBooks(bool asc)
+        {
+            return _bookRepoService.SortBooks(asc);
+        }
+
         public Task<bool> UpdateBook(int bookId, BookModel model)
         {
             return _bookRepoService.UpdateBook(bookId, model);
