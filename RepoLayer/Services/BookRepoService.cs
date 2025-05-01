@@ -100,6 +100,38 @@ namespace RepoLayer.Services
             _context.SaveChangesAsync();
             return true;
         }
+        public List<Book> SearchBooks(string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                throw new ArgumentException("Search term cannot be null or empty");
+            }
+            var books = _context.Books
+                .Where(b => b.bookName.Contains(searchTerm) || b.author.Contains(searchTerm))
+                .ToList();
+            return books;
+        }
+        public List<Book> SortBooks(bool asc)
+        {
+            if (asc)
+            {
+                var books = _context.Books.OrderBy(b => b.price).ToList();
+                return books;
+            }
+            else
+            {
+                var books = _context.Books.OrderByDescending(b => b.price).ToList();
+                return books;
+            }
+        }
+        public List<Book> GetBooksByPageNumber(int pageNumber)
+        {
+            int pageSize = 6;
+            return _context.Books
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
 
 
     }

@@ -83,6 +83,63 @@ namespace BookStore_App_Backend.Controllers
                 return BadRequest(new { success = false, message = "Error retrieving book" });
             }
         }
+        [Authorize(Roles = "Admin, User")]
+        [HttpGet("search")]
+        public IActionResult SearchBooks(string searchText)
+        {
+            try
+            {
+                var books = _bookService.SearchBooks(searchText);
+                if (books == null || !books.Any())
+                {
+                    return NotFound(new { success = false, message = "No books found" });
+                }
+                return Ok(new { success = true, message = "Books Found Successfully", data = books });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(new { success = false, message = "Error retrieving books" });
+            }
+        }
+        [Authorize(Roles = "Admin, User")]
+        [HttpGet("sort")]
+        public IActionResult SortBooks(bool sortBy)
+        {
+            try
+            {
+                var books = _bookService.SortBooks(sortBy);
+                if (books == null || !books.Any())
+                {
+                    return NotFound(new { success = false, message = "No books found" });
+                }
+                return Ok(new { success = true, message = "Books Found Successfully", data = books });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(new { success = false, message = "Error retrieving books" });
+            }
+        }
+        [Authorize(Roles = "Admin, User")]
+        [HttpGet("pagination")]
+        public IActionResult PaginateBooks(int pageNumber)
+        {
+            try
+            {
+                var books = _bookService.GetBooksByPageNumber(pageNumber);
+                if (books == null || !books.Any())
+                {
+                    return NotFound(new { success = false, message = "No books found" });
+                }
+                return Ok(new { success = true, message = "Books Found Successfully", data = books });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(new { success = false, message = "Error retrieving books" });
+            }
+        }
         [Authorize(Roles = "Admin")]
         [HttpPut("{bookId}")]
         public async Task<IActionResult> UpdateBook(int bookId, BookModel model)
@@ -130,5 +187,6 @@ namespace BookStore_App_Backend.Controllers
                 return BadRequest(new { success = false, message = "Book deletion failed" });
             }
         }
+
     }
 }

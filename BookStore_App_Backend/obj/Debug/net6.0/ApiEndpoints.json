@@ -159,6 +159,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookStore_App_Backend.Controllers.bookController",
+    "Method": "PaginateBooks",
+    "RelativePath": "api/book/pagination",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.bookController",
+    "Method": "SearchBooks",
+    "RelativePath": "api/book/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchText",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.bookController",
+    "Method": "SortBooks",
+    "RelativePath": "api/book/sort",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sortBy",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookStore_App_Backend.Controllers.userController",
     "Method": "Register",
     "RelativePath": "api/user",

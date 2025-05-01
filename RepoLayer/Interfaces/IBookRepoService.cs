@@ -15,6 +15,9 @@ namespace RepoLayer.Interfaces
         bool DeleteBook(int bookId);
         public Book GetBookById(int bookId);
         public List<Book> GetAllBooks();
+        public List<Book> SearchBooks(string searchTerm);
+        public List<Book> SortBooks(bool asc);
+        public List<Book> GetBooksByPageNumber(int pageNumber);
 
 
     }
