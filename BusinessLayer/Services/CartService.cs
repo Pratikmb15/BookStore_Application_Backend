@@ -27,19 +27,19 @@ namespace BusinessLayer.Services
             return _cartRepoService.DeleteCartItem(cartItemId);
         }
 
-        public List<CartItem> GetAllCartItems(int userId)
+        public GetAllCartItemModel<CartItem> GetAllCartItems(int userId)
         {
-           return _cartRepoService.GetAllCartItems(userId);
+            return _cartRepoService.GetAllCartItems(userId);
         }
 
-        public CartItem GetCartItemById(int cartId)
+        public GetAllCartItemModel<CartItem> GetCartItemById(int cartId)
         {
             return _cartRepoService.GetCartItemById(cartId);
         }
 
-        public Task<int> PurchaseCartItems(int userId)
+        public async Task<int> PurchaseCartItems(int userId)
         {
-            return _cartRepoService.PurchaseCartItems(userId);
+            return await _cartRepoService.PurchaseCartItems(userId);
         }
 
         public Task<bool> UpdateCartItem(int cartId, CartItemModel cart)
