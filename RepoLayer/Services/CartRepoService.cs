@@ -48,6 +48,10 @@ namespace RepoLayer.Services
             {
                 throw new ArgumentException("Book is not available");
             }
+            if(cartModel.bookQuantity > book.quantity)
+            {
+                throw new ArgumentException("Book quantity is not available");
+            }
             var cartItem = new CartItem()
             {
                 userId = userId,
@@ -71,6 +75,10 @@ namespace RepoLayer.Services
             {
                 throw new Exception("Cart not found");
             }
+            if (cart.bookQuantity <= 0)
+            {
+                await DeleteCartItem(cartItem.cartId);
+            }
             var Book = _bookRepoService.GetBookById(cart.bookId);
             if (Book.quantity < cart.bookQuantity)
             {
@@ -80,10 +88,6 @@ namespace RepoLayer.Services
             cartItem.price = Book.price-Book.discountPrice;       
             _context.Cart.Update(cartItem);
             await _context.SaveChangesAsync();
-            if (cart.bookQuantity <= 0)
-            {
-                await DeleteCartItem(cartItem.cartId);
-            }
             return true;
         }
         public async Task<bool> DeleteCartItem(int cartItemId)
@@ -96,6 +100,13 @@ namespace RepoLayer.Services
             if (cartItem == null)
             {
                 throw new Exception($"No Cart item Found with Id = {cartItemId} to delete");
+            }
+            if (cartItem.bookQuantity > 1)
+            {
+                cartItem.bookQuantity--;
+                _context.Cart.Update(cartItem);
+                await _context.SaveChangesAsync();
+                return true;
             }
             _context.Cart.Remove(cartItem);
             await _context.SaveChangesAsync();

@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|solutionrelative:bookstore_app_backend\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\bookstore_app_backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|solutionrelative:bookstore_app_backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\bookstore_app_backend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|solutionrelative:bookstore_app_backend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\repolayer\\services\\cartreposervice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|solutionrelative:repolayer\\services\\cartreposervice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{20F96AAC-FFF6-41F2-9A2F-8E546DF0D445}|BusinessLayer\\BusinessLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\businesslayer\\interfaces\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20F96AAC-FFF6-41F2-9A2F-8E546DF0D445}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\interfaces\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20F96AAC-FFF6-41F2-9A2F-8E546DF0D445}|BusinessLayer\\BusinessLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\businesslayer\\services\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20F96AAC-FFF6-41F2-9A2F-8E546DF0D445}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\services\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\repolayer\\services\\cartreposervice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|solutionrelative:repolayer\\services\\cartreposervice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\repolayer\\interfaces\\icartreposervice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,10 +59,6 @@
       "RelativeMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|solutionrelative:repolayer\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\bookstore_app_backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|solutionrelative:bookstore_app_backend\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\repolayer\\entity\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{908FCCA3-E208-4E24-9A69-08A17C4F3FE9}|RepoLayer\\RepoLayer.csproj|solutionrelative:repolayer\\entity\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,10 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4D891BFE-2246-47C3-ABCE-F28FC99B7270}|ModelLayer\\ModelLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\modellayer\\modellayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{4D891BFE-2246-47C3-ABCE-F28FC99B7270}|ModelLayer\\ModelLayer.csproj|solutionrelative:modellayer\\modellayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\bookstore_app_backend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11B7BE98-9571-4869-AC31-6BF71D4D77D0}|BookStore_App_Backend\\BookStore_App_Backend.csproj|solutionrelative:bookstore_app_backend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20F96AAC-FFF6-41F2-9A2F-8E546DF0D445}|BusinessLayer\\BusinessLayer.csproj|c:\\users\\milind\\source\\repos\\bookstore_app_backend\\businesslayer\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -210,21 +210,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ICartRepoService.cs",
-              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Interfaces\\ICartRepoService.cs",
-              "RelativeDocumentMoniker": "RepoLayer\\Interfaces\\ICartRepoService.cs",
-              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Interfaces\\ICartRepoService.cs",
-              "RelativeToolTip": "RepoLayer\\Interfaces\\ICartRepoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T16:28:36.064Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -233,27 +220,14 @@
               "RelativeDocumentMoniker": "RepoLayer\\Services\\CartRepoService.cs",
               "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Services\\CartRepoService.cs",
               "RelativeToolTip": "RepoLayer\\Services\\CartRepoService.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAmwHYAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T08:52:55.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CartItemModel.cs",
-              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\ModelLayer\\CartItemModel.cs",
-              "RelativeDocumentMoniker": "ModelLayer\\CartItemModel.cs",
-              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\ModelLayer\\CartItemModel.cs",
-              "RelativeToolTip": "ModelLayer\\CartItemModel.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T13:31:57.261Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ICartService.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BusinessLayer\\Interfaces\\ICartService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Interfaces\\ICartService.cs",
@@ -261,12 +235,11 @@
               "RelativeToolTip": "BusinessLayer\\Interfaces\\ICartService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T16:43:44.057Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T16:43:44.057Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "CartService.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BusinessLayer\\Services\\CartService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Services\\CartService.cs",
@@ -274,8 +247,7 @@
               "RelativeToolTip": "BusinessLayer\\Services\\CartService.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T16:44:18.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T16:44:18.099Z"
             },
             {
               "$type": "Document",
@@ -285,14 +257,14 @@
               "RelativeDocumentMoniker": "BookStore_App_Backend\\Controllers\\CartController.cs",
               "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BookStore_App_Backend\\Controllers\\CartController.cs",
               "RelativeToolTip": "BookStore_App_Backend\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAswAoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwIkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T16:48:53.196Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "BookRepoService.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Services\\BookRepoService.cs",
               "RelativeDocumentMoniker": "RepoLayer\\Services\\BookRepoService.cs",
@@ -300,12 +272,11 @@
               "RelativeToolTip": "RepoLayer\\Services\\BookRepoService.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAAwHcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T06:15:23.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-30T06:15:23.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "IBookService.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BusinessLayer\\Interfaces\\IBookService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Interfaces\\IBookService.cs",
@@ -313,12 +284,11 @@
               "RelativeToolTip": "BusinessLayer\\Interfaces\\IBookService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T06:20:31.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-30T06:20:31.781Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Entity\\CartItem.cs",
               "RelativeDocumentMoniker": "RepoLayer\\Entity\\CartItem.cs",
@@ -326,12 +296,11 @@
               "RelativeToolTip": "RepoLayer\\Entity\\CartItem.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T08:47:30.65Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T08:47:30.65Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "20250501170515_Added Cart Table.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Migrations\\20250501170515_Added Cart Table.cs",
               "RelativeDocumentMoniker": "RepoLayer\\Migrations\\20250501170515_Added Cart Table.cs",
@@ -339,25 +308,24 @@
               "RelativeToolTip": "RepoLayer\\Migrations\\20250501170515_Added Cart Table.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T17:05:15.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T17:05:15.823Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Context\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "RepoLayer\\Context\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Context\\AppDbContext.cs",
-              "RelativeToolTip": "RepoLayer\\Context\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BookStore_App_Backend\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "BookStore_App_Backend\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BookStore_App_Backend\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "BookStore_App_Backend\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T05:05:44.789Z",
+              "WhenOpened": "2025-04-17T10:23:19.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 1,
               "Title": "bookController.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BookStore_App_Backend\\Controllers\\bookController.cs",
               "RelativeDocumentMoniker": "BookStore_App_Backend\\Controllers\\bookController.cs",
@@ -370,7 +338,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
+              "Title": "CartItemModel.cs",
+              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\ModelLayer\\CartItemModel.cs",
+              "RelativeDocumentMoniker": "ModelLayer\\CartItemModel.cs",
+              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\ModelLayer\\CartItemModel.cs",
+              "RelativeToolTip": "ModelLayer\\CartItemModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T13:31:57.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ICartRepoService.cs",
+              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Interfaces\\ICartRepoService.cs",
+              "RelativeDocumentMoniker": "RepoLayer\\Interfaces\\ICartRepoService.cs",
+              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Interfaces\\ICartRepoService.cs",
+              "RelativeToolTip": "RepoLayer\\Interfaces\\ICartRepoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T16:28:36.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "RepoLayer\\Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "RepoLayer\\Context\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T05:05:44.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BookStore_App_Backend\\Program.cs",
               "RelativeDocumentMoniker": "BookStore_App_Backend\\Program.cs",
@@ -378,12 +382,11 @@
               "RelativeToolTip": "BookStore_App_Backend\\Program.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAcwBsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T08:41:08.308Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T08:41:08.308Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "UserRepoServices.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Services\\UserRepoServices.cs",
               "RelativeDocumentMoniker": "RepoLayer\\Services\\UserRepoServices.cs",
@@ -391,12 +394,11 @@
               "RelativeToolTip": "RepoLayer\\Services\\UserRepoServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T05:24:42.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T05:24:42.859Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\RepoLayer\\Entity\\Book.cs",
               "RelativeDocumentMoniker": "RepoLayer\\Entity\\Book.cs",
@@ -404,8 +406,7 @@
               "RelativeToolTip": "RepoLayer\\Entity\\Book.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAIwCMAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T09:53:17.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-30T09:53:17.024Z"
             },
             {
               "$type": "Document",
@@ -421,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "ModelLayer.csproj",
               "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\ModelLayer\\ModelLayer.csproj",
               "RelativeDocumentMoniker": "ModelLayer\\ModelLayer.csproj",
@@ -429,8 +430,7 @@
               "RelativeToolTip": "ModelLayer\\ModelLayer.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-28T10:09:50.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-28T10:09:50.59Z"
             },
             {
               "$type": "Document",
@@ -443,18 +443,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-30T06:21:54.272Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BookStore_App_Backend\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "BookStore_App_Backend\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\MILIND\\source\\repos\\BookStore_App_Backend\\BookStore_App_Backend\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "BookStore_App_Backend\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwAwAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T10:23:19.933Z"
             },
             {
               "$type": "Document",
