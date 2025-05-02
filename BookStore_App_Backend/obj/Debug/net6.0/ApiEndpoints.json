@@ -360,6 +360,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookStore_App_Backend.Controllers.wishListController",
+    "Method": "AddToWishList",
+    "RelativePath": "api/wishList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "item",
+        "Type": "ModelLayer.WishListItemModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.wishListController",
+    "Method": "GetAllWishListItems",
+    "RelativePath": "api/wishList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.wishListController",
+    "Method": "GetWishListItemById",
+    "RelativePath": "api/wishList/{wishListItemId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "wishListItemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.wishListController",
+    "Method": "RemoveFromWishList",
+    "RelativePath": "api/wishList/{wishListItemId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "wishListItemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookStore_App_Backend.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

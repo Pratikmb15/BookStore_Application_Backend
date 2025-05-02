@@ -136,8 +136,6 @@ namespace RepoLayer.Migrations
 
                     b.HasIndex("bookId");
 
-                    b.HasIndex("userId");
-
                     b.ToTable("Carts");
                 });
 
@@ -181,6 +179,27 @@ namespace RepoLayer.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("RepoLayer.Entity.WishListItem", b =>
+                {
+                    b.Property<int>("whishListId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("whishListId"), 1L, 1);
+
+                    b.Property<int>("bookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.HasKey("whishListId");
+
+                    b.HasIndex("bookId");
+
+                    b.ToTable("WhishList");
+                });
+
             modelBuilder.Entity("RepoLayer.Entity.CartItem", b =>
                 {
                     b.HasOne("RepoLayer.Entity.Book", "Book")
@@ -189,15 +208,18 @@ namespace RepoLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RepoLayer.Entity.User", "User")
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("RepoLayer.Entity.WishListItem", b =>
+                {
+                    b.HasOne("RepoLayer.Entity.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("userId")
+                        .HasForeignKey("bookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }
