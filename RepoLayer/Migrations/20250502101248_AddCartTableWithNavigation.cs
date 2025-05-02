@@ -4,12 +4,12 @@
 
 namespace RepoLayer.Migrations
 {
-    public partial class AddedCartTable : Migration
+    public partial class AddCartTableWithNavigation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Cart",
+                name: "Carts",
                 columns: table => new
                 {
                     cartId = table.Column<int>(type: "int", nullable: false)
@@ -22,14 +22,25 @@ namespace RepoLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cart", x => x.cartId);
+                    table.PrimaryKey("PK_Carts", x => x.cartId);
+                    table.ForeignKey(
+                        name: "FK_Carts_Books_bookId",
+                        column: x => x.bookId,
+                        principalTable: "Books",
+                        principalColumn: "bookId",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_bookId",
+                table: "Carts",
+                column: "bookId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cart");
+                name: "Carts");
         }
     }
 }

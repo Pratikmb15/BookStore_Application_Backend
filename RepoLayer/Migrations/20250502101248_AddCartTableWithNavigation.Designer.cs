@@ -12,8 +12,8 @@ using RepoLayer.Context;
 namespace RepoLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250501170515_Added Cart Table")]
-    partial class AddedCartTable
+    [Migration("20250502101248_AddCartTableWithNavigation")]
+    partial class AddCartTableWithNavigation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -136,7 +136,9 @@ namespace RepoLayer.Migrations
 
                     b.HasKey("cartId");
 
-                    b.ToTable("Cart");
+                    b.HasIndex("bookId");
+
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("RepoLayer.Entity.User", b =>
@@ -177,6 +179,17 @@ namespace RepoLayer.Migrations
                     b.HasKey("userId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("RepoLayer.Entity.CartItem", b =>
+                {
+                    b.HasOne("RepoLayer.Entity.Book", "book")
+                        .WithMany()
+                        .HasForeignKey("bookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("book");
                 });
 #pragma warning restore 612, 618
         }

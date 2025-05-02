@@ -1,4 +1,5 @@
-﻿using ModelLayer;
+﻿using Microsoft.EntityFrameworkCore;
+using ModelLayer;
 using RepoLayer.Context;
 using RepoLayer.Entity;
 using RepoLayer.Interfaces;
@@ -19,27 +20,45 @@ namespace RepoLayer.Services
             _bookRepoService = bookRepoService;
             _context = context;
         }
-        public List<CartItem> GetAllCartItems(int userId)
+        public GetAllCartItemModel<CartItem> GetAllCartItems(int userId)
         {
-            var cartItems = _context.Cart.Where(n => n.userId == userId).ToList();
+            var cartItems = _context.Carts.Include(c => c.Book).Where(n => n.userId == userId && n.isPurchased==false).ToList();
             if (cartItems == null || cartItems.Count == 0)
             {
-                throw new ArgumentException("No Cart Items Found");
+                throw new ArgumentException(" Cart is Empty ");
             }
-            return cartItems;
+            int totalPrice = 0;
+            foreach (var item in cartItems)
+            {
+                if (item.isPurchased == false)
+                {
+                    totalPrice += (item.price*item.bookQuantity);
+                }
+            }
+            var cartItemModel = new GetAllCartItemModel<CartItem>()
+            {
+                cartItems = cartItems,
+                totalPrice = totalPrice
+            };
+            return cartItemModel;
         }
-        public CartItem GetCartItemById(int cartId)
+        public GetAllCartItemModel<CartItem> GetCartItemById(int cartId)
         {
             if (cartId <= 0)
             {
                 throw new Exception("Invalid Cart ID");
             }
-            var cartItem = _context.Cart.FirstOrDefault(c => c.cartId == cartId);
+            var cartItem = _context.Carts.Include(c => c.Book).FirstOrDefault(c => c.cartId == cartId);
             if (cartItem == null)
             {
-                throw new Exception("Cart item not found");
+                throw new Exception("Cart is empty ");
             }
-            return cartItem;
+            var cartItemModel = new GetAllCartItemModel<CartItem>()
+            {
+                cartItems = new List<CartItem> { cartItem },
+                totalPrice = cartItem.price * cartItem.bookQuantity
+            };
+            return cartItemModel;
         }
         public async Task<bool> AddItemToCart(int userId,CartItemModel cartModel)
         {
@@ -52,15 +71,30 @@ namespace RepoLayer.Services
             {
                 throw new ArgumentException("Book quantity is not available");
             }
+            var checkCartItemExists = CheckCartItemExists(userId, cartModel.bookId);
+            if (checkCartItemExists)
+            { 
+            var cartId = getCartId(userId, cartModel.bookId);
+                var cartItemBook = _context.Carts.FirstOrDefault(c => c.cartId == cartId);
+                if (cartItemBook != null)
+                {
+                    cartItemBook.bookQuantity += cartModel.bookQuantity;
+                    _context.Carts.Update(cartItemBook);
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+            }
             var cartItem = new CartItem()
             {
                 userId = userId,
                 bookId = cartModel.bookId,
                 bookQuantity = cartModel.bookQuantity,
                 price = book.price-book.discountPrice,
-                isPurchased = false
+                isPurchased = false,
+              
             };
-            _context.Cart.Add(cartItem);
+           
+            _context.Carts.Add(cartItem);
             await _context.SaveChangesAsync();
             return true;
         }
@@ -70,7 +104,7 @@ namespace RepoLayer.Services
             {
                 throw new Exception("Invalid CartID");
             }
-            var cartItem = _context.Cart.FirstOrDefault(c => c.cartId == cartId);
+            var cartItem = _context.Carts.FirstOrDefault(c => c.cartId == cartId);
             if (cartItem == null)
             {
                 throw new Exception("Cart not found");
@@ -80,13 +114,18 @@ namespace RepoLayer.Services
                 await DeleteCartItem(cartItem.cartId);
             }
             var Book = _bookRepoService.GetBookById(cart.bookId);
+            if (Book == null)
+            {
+                throw new Exception("Book not found");
+            }
             if (Book.quantity < cart.bookQuantity)
             {
                 throw new Exception("Book is not available");
             }
+            cartItem.bookId = cart.bookId;
             cartItem.bookQuantity = cart.bookQuantity;
-            cartItem.price = Book.price-Book.discountPrice;       
-            _context.Cart.Update(cartItem);
+            cartItem.price = Book.price-Book.discountPrice;    
+            _context.Carts.Update(cartItem);
             await _context.SaveChangesAsync();
             return true;
         }
@@ -96,7 +135,7 @@ namespace RepoLayer.Services
             {
                 throw new Exception("Invalid Cart Item");
             }
-            var cartItem = _context.Cart.FirstOrDefault(x => x.cartId == cartItemId);
+            var cartItem = _context.Carts.FirstOrDefault(x => x.cartId == cartItemId);
             if (cartItem == null)
             {
                 throw new Exception($"No Cart item Found with Id = {cartItemId} to delete");
@@ -104,11 +143,11 @@ namespace RepoLayer.Services
             if (cartItem.bookQuantity > 1)
             {
                 cartItem.bookQuantity--;
-                _context.Cart.Update(cartItem);
+                _context.Carts.Update(cartItem);
                 await _context.SaveChangesAsync();
                 return true;
             }
-            _context.Cart.Remove(cartItem);
+            _context.Carts.Remove(cartItem);
             await _context.SaveChangesAsync();
             return true;
 
@@ -116,11 +155,12 @@ namespace RepoLayer.Services
 
         public async Task<int> PurchaseCartItems(int userId)
         {
-            if (userId <= 0) { 
-            throw new Exception("Invalid User ID");
+            if (userId <= 0)
+            {
+                throw new Exception("Invalid User ID");
             }
 
-            var cartItems = GetAllCartItems(userId);
+            var cartItems = _context.Carts.Where(n => n.userId == userId && n.isPurchased==false).ToList();
             if (cartItems == null)
             {
                 throw new Exception("Cart item not found");
@@ -136,7 +176,7 @@ namespace RepoLayer.Services
                         throw new ArgumentException("Book is not available");
                     }
                     item.isPurchased = true;
-                    _context.Cart.Update(item);
+                    _context.Carts.Update(item);
                     await _context.SaveChangesAsync();
                     if (book != null)
                     {
@@ -144,11 +184,25 @@ namespace RepoLayer.Services
                         _context.Books.Update(book);
                         await _context.SaveChangesAsync();
                     }
-                    totalPrice += item.price;
+                    totalPrice += (item.price*item.bookQuantity);
                 }
             }
-            
+
             return totalPrice;
+        }
+        public bool CheckCartItemExists(int userId, int bookId)
+        {
+            var cartItem = _context.Carts.FirstOrDefault(c => c.userId == userId && c.bookId == bookId);
+            return cartItem != null;
+        }
+        public int getCartId(int userId, int bookId)
+        {
+            var cartItem = _context.Carts.FirstOrDefault(c => c.userId == userId && c.bookId == bookId);
+            if (cartItem != null)
+            {
+                return cartItem.cartId;
+            }
+            return 0;
         }
     }
 }

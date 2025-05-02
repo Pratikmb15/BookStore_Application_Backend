@@ -57,17 +57,17 @@ namespace BookStore_App_Backend.Controllers
                 {
                     return BadRequest(new { success = false, message = "Invalid user ID" });
                 }
-                var cartItems = _cartService.GetAllCartItems(userId);
-                if (cartItems == null || !cartItems.Any())
+                var response = _cartService.GetAllCartItems(userId);
+                if (response == null || !response.cartItems.Any())
                 {
                     return NotFound(new { success = false, message = "No cart items found" });
                 }
-                return Ok(new { success = true, message = "Cart items found successfully", data = cartItems });
+                return Ok(new { success = true, message = "Cart items found successfully", data = response });
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return BadRequest(new { success = false, message = "Failed to retrieve cart items" });
+                return BadRequest(new { success = false, message = ex.Message});
             }
         }
         [HttpGet("{cartItemId}")]
@@ -80,12 +80,12 @@ namespace BookStore_App_Backend.Controllers
                 {
                     return BadRequest(new { success = false, message = "Invalid cart item ID" });
                 }
-                var CartItem =  _cartService.GetCartItemById(cartItemId);
-                if (CartItem == null)
+                var res =  _cartService.GetCartItemById(cartItemId);
+                if (res.cartItems == null)
                 {
                     return NotFound(new { success = false, message = "Cart item not found" });
                 }
-                return Ok(new { success = true, message = "Cart item found successfully", data = CartItem });
+                return Ok(new { success = true, message = "Cart item found successfully", data = res });
             }
             catch (Exception ex)
             {
@@ -138,7 +138,7 @@ namespace BookStore_App_Backend.Controllers
             }
         }
         [HttpPost("purchase")]
-        public IActionResult PurchaseCartItems()
+        public async Task<IActionResult> PurchaseCartItems()
         {
             try
             {
@@ -147,7 +147,7 @@ namespace BookStore_App_Backend.Controllers
                 {
                     return BadRequest(new { success = false, message = "Invalid user ID" });
                 }
-                var result =(_cartService.PurchaseCartItems(userId));
+                var result = await (_cartService.PurchaseCartItems(userId));
                  var totalPrice = Convert.ToInt32(result);
                 if (totalPrice <= 0)
                 {
@@ -158,7 +158,7 @@ namespace BookStore_App_Backend.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return BadRequest(new { success = false, message = "Failed to purchase cart items" });
+                return BadRequest(new { success = false, message = ex.Message });
             }
         }
     }
