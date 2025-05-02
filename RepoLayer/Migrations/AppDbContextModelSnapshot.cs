@@ -109,6 +109,34 @@ namespace RepoLayer.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("RepoLayer.Entity.CartItem", b =>
+                {
+                    b.Property<int>("cartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("cartId"), 1L, 1);
+
+                    b.Property<int>("bookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("bookQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isPurchased")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.HasKey("cartId");
+
+                    b.ToTable("Cart");
+                });
+
             modelBuilder.Entity("RepoLayer.Entity.User", b =>
                 {
                     b.Property<int>("userId")
