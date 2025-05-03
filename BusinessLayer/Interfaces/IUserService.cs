@@ -17,7 +17,8 @@ namespace BusinessLayer.Interfaces
         public Task<bool> UpdateUser(int userId, UserRegisterModel model);
         public string ForgetPassword(string email);
         public bool ResetPassword(string Email, ResetPasswordModel model);
-       
+        public bool UpdateUserToken(User user);
+
     }
 
 }

@@ -28,30 +28,51 @@ namespace BookStore_App_Backend.Controllers
         [HttpPost("refresh-token")]
         public async Task<IActionResult> Refresh([FromBody] TokenRequestModel tokenModel)
         {
-            if (tokenModel is null)
+            try
             {
-                return BadRequest(new { success = false, message = "Invalid client request" });
-            }
-
-            var principal = _authService.GetPrincipalFromExpiredToken(tokenModel.accessToken);
-            var email = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-            Console.WriteLine(email);
-
-            var user = _userService.GetUserByEmail(email);
-            if (user == null || user.refreshToken != tokenModel.refreshToken || user.refreshTokenExpiryTime <= DateTime.Now)
-            {
-                var admin = _adminService.GetAdminByEmail(email);
-
-                if (admin == null || admin.refreshToken != tokenModel.refreshToken || admin.refreshTokenExpiryTime <= DateTime.Now)
+                if (tokenModel is null)
                 {
-                    return BadRequest(new { success = false, message = "Invalid refresh token" });
+                    return BadRequest(new { success = false, message = "Invalid client request" });
                 }
 
-                var newAccessToken = _authService.GenerateToken(admin);
-                var newRefreshToken = _authService.GenerateRefreshToken();
+                var principal = _authService.GetPrincipalFromExpiredToken(tokenModel.accessToken);
+                var email = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+                Console.WriteLine(email);
 
-                admin.refreshToken = newRefreshToken;
-                admin.refreshTokenExpiryTime = DateTime.Now.AddDays(7);
+                var user = _context.Users.FirstOrDefault(u => u.email == email);
+                if (user == null || user.refreshToken != tokenModel.refreshToken || user.refreshTokenExpiryTime <= DateTime.Now)
+                {
+                    var admin = _context.Admins.FirstOrDefault(a => a.email == email);
+
+                    if (admin == null || admin.refreshToken != tokenModel.refreshToken || admin.refreshTokenExpiryTime <= DateTime.Now)
+                    {
+                        return BadRequest(new { success = false, message = "Invalid refresh token" });
+                    }
+
+                    var newAccessToken = _authService.GenerateToken(admin);
+                    var newRefreshToken = _authService.GenerateRefreshToken();
+
+                    admin.refreshToken = newRefreshToken;
+                    admin.refreshTokenExpiryTime = DateTime.Now.AddDays(7);
+                    await _context.SaveChangesAsync();
+
+                    return Ok(new
+                    {
+                        success = true,
+                        message = "Refreshed Tokens successfully",
+                        data = new
+                        {
+                            accessToken = newAccessToken,
+                            refreshToken = newRefreshToken
+                        }
+                    });
+                }
+
+                var newAccessTokenUser = _authService.GenerateToken(user);
+                var newRefreshTokenUser = _authService.GenerateRefreshToken();
+
+                user.refreshToken = newRefreshTokenUser;
+                user.refreshTokenExpiryTime = DateTime.Now.AddDays(7);
                 await _context.SaveChangesAsync();
 
                 return Ok(new
@@ -60,29 +81,15 @@ namespace BookStore_App_Backend.Controllers
                     message = "Refreshed Tokens successfully",
                     data = new
                     {
-                        accessToken = newAccessToken,
-                        refreshToken = newRefreshToken
+                        accessToken = newAccessTokenUser,
+                        refreshToken = newRefreshTokenUser
                     }
                 });
             }
-
-            var newAccessTokenUser = _authService.GenerateToken(user);
-            var newRefreshTokenUser = _authService.GenerateRefreshToken();
-
-            user.refreshToken = newRefreshTokenUser;
-            user.refreshTokenExpiryTime = DateTime.Now.AddDays(7);
-            await _context.SaveChangesAsync();
-
-            return Ok(new
+            catch (Exception ex)
             {
-                success = true,
-                message = "Refreshed Tokens successfully",
-                data = new
-                {
-                    accessToken = newAccessTokenUser,
-                    refreshToken = newRefreshTokenUser
-                }
-            });
+                return BadRequest(new { success = false, message = ex.Message });
+            }
         }
 
     }

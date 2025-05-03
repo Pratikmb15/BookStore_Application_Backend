@@ -65,5 +65,9 @@ namespace BusinessLayer.Services
         {
              _userRepoServices.DeleteUser(id);
         }
+        public bool UpdateUserToken(User user)
+        {
+            return _userRepoServices.UpdateUserToken(user);
+        }
     }
 }

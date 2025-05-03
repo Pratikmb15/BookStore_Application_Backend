@@ -138,6 +138,18 @@ namespace RepoLayer.Services
                 throw new Exception("User does not exist");
             }
         }
+        public bool UpdateUserToken(User user)
+        {
+            var existingUser = _context.Users.FirstOrDefault(u => u.userId == user.userId);
+            if (existingUser != null)
+            {
+                existingUser.refreshToken = user.refreshToken;
+                existingUser.refreshTokenExpiryTime = user.refreshTokenExpiryTime;
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
 
     }
 }

@@ -17,6 +17,7 @@ namespace RepoLayer.Interfaces
         public void DeleteUser(int id);
         public string ForgetPassword(string newToken, string email);
         public bool ResetPassword(string Email, ResetPasswordModel model);
-        
+        public bool UpdateUserToken(User user);
+
     }
 }

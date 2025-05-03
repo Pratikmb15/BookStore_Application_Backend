@@ -120,6 +120,21 @@ namespace RepoLayer.Services
                 return null;
             }
         }
+        public bool UpdateAdminToken(Admin admin)
+        {
+            var existingAdmin = _context.Admins.FirstOrDefault(u => u.userId == admin.userId);
+            if (existingAdmin != null)
+            {
+                existingAdmin.refreshToken = admin.refreshToken;
+                existingAdmin.refreshTokenExpiryTime = admin.refreshTokenExpiryTime;
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                throw new Exception("Admin not found");
+            }
+        }
 
 
     }

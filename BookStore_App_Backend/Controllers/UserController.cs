@@ -3,6 +3,7 @@ using BusinessLayer.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ModelLayer;
 using System.Security.Claims;
 
@@ -66,6 +67,9 @@ namespace BookStore_App_Backend.Controllers
                 }
                 var token = _authService.GenerateToken(user);
                 var refreshToken = _authService.GenerateRefreshToken();
+                user.refreshToken = refreshToken;
+                user.refreshTokenExpiryTime = DateTime.Now.AddDays(7);
+                _userService.UpdateUserToken(user);
 
                 return Ok(new { success = true, message = "User Login Succssfully", data = new { token, refreshToken } });
             }

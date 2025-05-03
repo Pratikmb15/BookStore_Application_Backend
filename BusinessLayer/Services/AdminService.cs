@@ -72,6 +72,10 @@ namespace BusinessLayer.Services
         {
             return _adminRepoServices.AdminResetPassword(email, model);
         }
+        public bool UpdateAdminToken(Admin admin)
+        {
+            return _adminRepoServices.UpdateAdminToken(admin);
+        }
 
     }
 }

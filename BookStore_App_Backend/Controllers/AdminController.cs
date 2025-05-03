@@ -73,6 +73,9 @@ namespace BookStore_App_Backend.Controllers
                 }
                 var token = _authService.GenerateToken(admin);
                 var refreshToken = _authService.GenerateRefreshToken();
+                admin.refreshToken = refreshToken;
+                admin.refreshTokenExpiryTime = DateTime.Now.AddDays(7);
+                 _adminService.UpdateAdminToken(admin);
 
                 return Ok(new { success = true, message = "Admin Login Succssfully", data = new { token,refreshToken} });
             }
