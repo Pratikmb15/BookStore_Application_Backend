@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using ModelLayer;
 using RepoLayer.Entity;
 
 namespace RepoLayer.Context
@@ -15,5 +16,6 @@ namespace RepoLayer.Context
         public DbSet<Book> Books { get; set; }
         public DbSet<CartItem> Carts { get; set; }
         public DbSet<WishListItem> WhishList { get; set; }
+        public DbSet<CustomerDetail> Customers { get; set; }
     }
 }

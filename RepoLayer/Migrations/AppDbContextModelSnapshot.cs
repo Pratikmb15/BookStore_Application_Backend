@@ -139,6 +139,42 @@ namespace RepoLayer.Migrations
                     b.ToTable("Carts");
                 });
 
+            modelBuilder.Entity("RepoLayer.Entity.CustomerDetail", b =>
+                {
+                    b.Property<int>("customerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("customerId"), 1L, 1);
+
+                    b.Property<string>("address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("city")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("mobileNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("state")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.HasKey("customerId");
+
+                    b.ToTable("Customers");
+                });
+
             modelBuilder.Entity("RepoLayer.Entity.User", b =>
                 {
                     b.Property<int>("userId")
