@@ -28,6 +28,8 @@ builder.Services.AddScoped<ICartRepoService, CartRepoService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IWishListRepoService, WishListRepoService>();
 builder.Services.AddScoped<IWishListService, WishListService>();
+builder.Services.AddScoped<ICustomerRepoService, CustomerRepoService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<IEmailService, EmailService>();
 
