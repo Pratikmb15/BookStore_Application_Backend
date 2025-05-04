@@ -296,9 +296,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.CustomerController",
+    "ContainingType": "BookStore_App_Backend.Controllers.customerController",
+    "Method": "AddCustomer",
+    "RelativePath": "api/customer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customer",
+        "Type": "ModelLayer.CustomerModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.customerController",
     "Method": "GetAllCustomers",
-    "RelativePath": "api/Customer",
+    "RelativePath": "api/customer",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -306,9 +322,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.CustomerController",
+    "ContainingType": "BookStore_App_Backend.Controllers.customerController",
     "Method": "UpdateCustomer",
-    "RelativePath": "api/Customer/{customerId}",
+    "RelativePath": "api/customer/{customerId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -327,9 +343,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.CustomerController",
+    "ContainingType": "BookStore_App_Backend.Controllers.customerController",
     "Method": "DeleteCustomer",
-    "RelativePath": "api/Customer/{customerId}",
+    "RelativePath": "api/customer/{customerId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -343,9 +359,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.CustomerController",
+    "ContainingType": "BookStore_App_Backend.Controllers.customerController",
     "Method": "GetCustomerById",
-    "RelativePath": "api/Customer/{customerId}",
+    "RelativePath": "api/customer/{customerId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -359,16 +375,36 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookStore_App_Backend.Controllers.CustomerController",
-    "Method": "AddCustomer",
-    "RelativePath": "api/Customer/add",
+    "ContainingType": "BookStore_App_Backend.Controllers.orderController",
+    "Method": "AddOrder",
+    "RelativePath": "api/order",
     "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.orderController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/order",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.orderController",
+    "Method": "GetOrderById",
+    "RelativePath": "api/order/{orderId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "customer",
-        "Type": "ModelLayer.CustomerModel",
+        "Name": "orderId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

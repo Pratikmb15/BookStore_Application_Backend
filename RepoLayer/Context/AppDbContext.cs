@@ -17,5 +17,6 @@ namespace RepoLayer.Context
         public DbSet<CartItem> Carts { get; set; }
         public DbSet<WishListItem> WhishList { get; set; }
         public DbSet<CustomerDetail> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
