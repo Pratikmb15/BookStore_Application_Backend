@@ -8,6 +8,12 @@ C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Deb
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\BookStore_App_Backend.pdb
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\BCrypt.Net-Next.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Humanizer.dll
+C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\System.Web.WebPages.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -36,6 +42,7 @@ C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Deb
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\MILIND\source\repos\BookStore_App_Backend\BookStore_App_Backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll

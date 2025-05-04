@@ -486,10 +486,10 @@
         }
       }
     },
-    "/api/Customer/add": {
+    "/api/customer": {
       "post": {
         "tags": [
-          "Customer"
+          "customer"
         ],
         "requestBody": {
           "content": {
@@ -515,12 +515,22 @@
             "description": "Success"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "customer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
       }
     },
-    "/api/Customer/{customerId}": {
+    "/api/customer/{customerId}": {
       "put": {
         "tags": [
-          "Customer"
+          "customer"
         ],
         "parameters": [
           {
@@ -560,7 +570,7 @@
       },
       "delete": {
         "tags": [
-          "Customer"
+          "customer"
         ],
         "parameters": [
           {
@@ -581,7 +591,7 @@
       },
       "get": {
         "tags": [
-          "Customer"
+          "customer"
         ],
         "parameters": [
           {
@@ -601,10 +611,43 @@
         }
       }
     },
-    "/api/Customer": {
+    "/api/order": {
+      "post": {
+        "tags": [
+          "order"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "get": {
         "tags": [
-          "Customer"
+          "order"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/order/{orderId}": {
+      "get": {
+        "tags": [
+          "order"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {

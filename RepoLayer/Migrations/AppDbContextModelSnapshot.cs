@@ -175,6 +175,36 @@ namespace RepoLayer.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("RepoLayer.Entity.Order", b =>
+                {
+                    b.Property<int>("orderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("orderId"), 1L, 1);
+
+                    b.Property<int>("bookId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("orderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("totalPrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
+                    b.HasKey("orderId");
+
+                    b.HasIndex("bookId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("RepoLayer.Entity.User", b =>
                 {
                     b.Property<int>("userId")
@@ -237,6 +267,17 @@ namespace RepoLayer.Migrations
                 });
 
             modelBuilder.Entity("RepoLayer.Entity.CartItem", b =>
+                {
+                    b.HasOne("RepoLayer.Entity.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("bookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("RepoLayer.Entity.Order", b =>
                 {
                     b.HasOne("RepoLayer.Entity.Book", "Book")
                         .WithMany()
