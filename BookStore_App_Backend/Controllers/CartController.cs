@@ -94,7 +94,7 @@ namespace BookStore_App_Backend.Controllers
             }
         }
         [HttpPut("{cartItemId}")]
-        public async Task<IActionResult> UpdateCartItem(int cartItemId, CartItemModel cart)
+        public async Task<IActionResult> UpdateCartItem(int cartItemId, UCartItemModel cart)
         {
             try
             {

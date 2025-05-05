@@ -1,11 +1,13 @@
 ﻿using BusinessLayer.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using ModelLayer;
 using System.Security.Claims;
 
 namespace BookStore_App_Backend.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class orderController : ControllerBase

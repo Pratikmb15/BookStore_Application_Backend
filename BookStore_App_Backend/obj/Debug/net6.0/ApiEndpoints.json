@@ -263,7 +263,7 @@
       },
       {
         "Name": "cart",
-        "Type": "ModelLayer.CartItemModel",
+        "Type": "ModelLayer.UCartItemModel",
         "IsRequired": true
       }
     ],

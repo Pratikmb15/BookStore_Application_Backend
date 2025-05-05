@@ -13,7 +13,7 @@ namespace BusinessLayer.Interfaces
         public GetAllCartItemModel<CartItem> GetAllCartItems(int userId);
         public GetAllCartItemModel<CartItem> GetCartItemById(int cartId);
         public Task<bool> AddItemToCart(int userId, CartItemModel cartModel);
-        public Task<bool> UpdateCartItem(int cartId, CartItemModel cart);
+        public Task<bool> UpdateCartItem(int cartId, UCartItemModel cart);
         public Task<bool> DeleteCartItem(int cartItemId);
         public Task<int> PurchaseCartItems(int userId);
     }

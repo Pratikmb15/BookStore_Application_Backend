@@ -42,7 +42,7 @@ namespace BusinessLayer.Services
             return await _cartRepoService.PurchaseCartItems(userId);
         }
 
-        public Task<bool> UpdateCartItem(int cartId, CartItemModel cart)
+        public Task<bool> UpdateCartItem(int cartId, UCartItemModel cart)
         {
             return _cartRepoService.UpdateCartItem(cartId, cart);
         }

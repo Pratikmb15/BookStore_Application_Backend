@@ -431,17 +431,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CartItemModel"
+                "$ref": "#/components/schemas/UCartItemModel"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CartItemModel"
+                "$ref": "#/components/schemas/UCartItemModel"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CartItemModel"
+                "$ref": "#/components/schemas/UCartItemModel"
               }
             }
           }
@@ -921,16 +921,11 @@
       },
       "CartItemModel": {
         "required": [
-          "bookId",
-          "bookQuantity"
+          "bookId"
         ],
         "type": "object",
         "properties": {
           "bookId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "bookQuantity": {
             "type": "integer",
             "format": "int32"
           }
@@ -1012,6 +1007,24 @@
           "refreshToken": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UCartItemModel": {
+        "required": [
+          "bookId",
+          "bookQuantity"
+        ],
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bookQuantity": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

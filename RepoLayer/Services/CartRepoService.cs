@@ -67,10 +67,6 @@ namespace RepoLayer.Services
             {
                 throw new ArgumentException("Book is not available");
             }
-            if(cartModel.bookQuantity > book.quantity)
-            {
-                throw new ArgumentException("Book quantity is not available");
-            }
             var checkCartItemExists = CheckCartItemExists(userId, cartModel.bookId);
             if (checkCartItemExists)
             { 
@@ -78,7 +74,7 @@ namespace RepoLayer.Services
                 var cartItemBook = _context.Carts.FirstOrDefault(c => c.cartId == cartId);
                 if (cartItemBook != null)
                 {
-                    cartItemBook.bookQuantity += cartModel.bookQuantity;
+                    cartItemBook.bookQuantity ++;
                     _context.Carts.Update(cartItemBook);
                     await _context.SaveChangesAsync();
                     return true;
@@ -88,7 +84,7 @@ namespace RepoLayer.Services
             {
                 userId = userId,
                 bookId = cartModel.bookId,
-                bookQuantity = cartModel.bookQuantity,
+                bookQuantity = 1,
                 price = book.price-book.discountPrice,
                 isPurchased = false,
               
@@ -98,7 +94,7 @@ namespace RepoLayer.Services
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<bool> UpdateCartItem(int cartId, CartItemModel cart)
+        public async Task<bool> UpdateCartItem(int cartId, UCartItemModel cart)
         {
             if (cartId < 1)
             {
