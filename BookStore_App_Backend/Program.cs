@@ -1,4 +1,4 @@
-using BusinessLayer.Interfaces;
+﻿using BusinessLayer.Interfaces;
 using BusinessLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -61,6 +61,16 @@ builder.Services.AddAuthentication(options =>
 
 // Add Authorization
 builder.Services.AddAuthorization();
+//  Enable CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 
 // Add Controllers
 builder.Services.AddControllers();
@@ -107,6 +117,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// 🔹 Middleware
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
