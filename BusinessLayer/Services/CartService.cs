@@ -32,6 +32,11 @@ namespace BusinessLayer.Services
             return _cartRepoService.GetAllCartItems(userId);
         }
 
+        public int getCartId(int userId, int bookId)
+        {
+            return _cartRepoService.getCartId(userId, bookId);
+        }
+
         public GetAllCartItemModel<CartItem> GetCartItemById(int cartId)
         {
             return _cartRepoService.GetCartItemById(cartId);

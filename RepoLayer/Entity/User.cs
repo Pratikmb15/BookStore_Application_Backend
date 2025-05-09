@@ -21,7 +21,7 @@ namespace RepoLayer.Entity
         public string mobileNum { get; set; }
         [Required(ErrorMessage = "Role is required")]
         public string role { get; set; }
-        public string refreshToken { get; set; }
+        public string refreshToken { get; set; } = "empty";
         public DateTime refreshTokenExpiryTime { get; set; }
     }
 }

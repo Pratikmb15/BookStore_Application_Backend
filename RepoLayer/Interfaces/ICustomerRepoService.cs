@@ -17,6 +17,7 @@ namespace RepoLayer.Interfaces
         public  Task<List<CustomerDetail>> GetAllCustomersAsync();
         public  Task<CustomerDetail> GetCustomerByIdAsync(int customerId);
         public  Task<bool> IsCustomerExistsAsync(int userId);
+        public  Task<CustomerDetail> GetCustomerId(int userId);
 
 
     }

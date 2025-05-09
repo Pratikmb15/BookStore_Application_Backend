@@ -16,5 +16,6 @@ namespace RepoLayer.Interfaces
         public  Task<bool> UpdateCartItem(int cartId, UCartItemModel cart);
         public Task<bool> DeleteCartItem(int cartItemId);
         public Task<int> PurchaseCartItems(int userId);
+        public int getCartId(int userId, int bookId);
     }
 }

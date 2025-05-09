@@ -287,6 +287,22 @@
   },
   {
     "ContainingType": "BookStore_App_Backend.Controllers.CartController",
+    "Method": "GetCartId",
+    "RelativePath": "api/Cart/getCartIdBy/{bookId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.CartController",
     "Method": "PurchaseCartItems",
     "RelativePath": "api/Cart/purchase",
     "HttpMethod": "POST",
@@ -372,6 +388,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookStore_App_Backend.Controllers.customerController",
+    "Method": "GetCustomerId",
+    "RelativePath": "api/customer/getCustomerId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

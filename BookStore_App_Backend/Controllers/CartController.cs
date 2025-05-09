@@ -90,8 +90,32 @@ namespace BookStore_App_Backend.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return BadRequest(new { success = false, message = "Failed to retrieve cart item" });
+                return BadRequest(new { success = false, message = ex.Message });
             }
+        }
+        [HttpGet("getCartIdBy/{bookId}")]
+        public IActionResult GetCartId(int bookId)
+        {
+            try
+            {
+                if (bookId <= 0)
+                {
+                    return BadRequest(new { success = false, message = "Invalid Book ID" });
+                }
+                var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                var cartId = _cartService.getCartId(userId, bookId);
+                if (cartId == 0)
+                {
+                    return NotFound(new { success = false, message = "CartID not Found" });
+                }
+                return Ok(new { success = true, message = "cart id fetched successfully", data = cartId });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+
         }
         [HttpPut("{cartItemId}")]
         public async Task<IActionResult> UpdateCartItem(int cartItemId, UCartItemModel cart)
@@ -112,7 +136,7 @@ namespace BookStore_App_Backend.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return BadRequest(new { success = false, message = "Failed to update cart item" });
+                return BadRequest(new { success = false, message =ex.Message });
             }
         }
         [HttpDelete("{cartItemId}")]
@@ -134,7 +158,7 @@ namespace BookStore_App_Backend.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return BadRequest(new { success = false, message = "Failed to delete cart item" });
+                return BadRequest(new { success = false, message = ex.Message });
             }
         }
         [HttpPost("purchase")]

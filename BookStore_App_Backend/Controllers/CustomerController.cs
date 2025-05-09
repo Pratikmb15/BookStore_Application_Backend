@@ -10,7 +10,7 @@ namespace BookStore_App_Backend.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-   
+
     public class customerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
@@ -19,7 +19,7 @@ namespace BookStore_App_Backend.Controllers
         {
             _customerService = customerService;
         }
-       
+
         [HttpPost]
         public async Task<IActionResult> AddCustomer(CustomerModel customer)
         {
@@ -43,9 +43,9 @@ namespace BookStore_App_Backend.Controllers
                 return BadRequest(new { success = false, message = ex.Message });
             }
         }
-        
+
         [HttpPut("{customerId}")]
-        public async Task<IActionResult> UpdateCustomer(int customerId,CustomerModel customer)
+        public async Task<IActionResult> UpdateCustomer(int customerId, CustomerModel customer)
         {
             try
             {
@@ -67,14 +67,14 @@ namespace BookStore_App_Backend.Controllers
                 return BadRequest(new { success = false, message = ex.Message });
             }
         }
-      
+
         [HttpDelete("{customerId}")]
         public async Task<IActionResult> DeleteCustomer(int customerId)
         {
             try
             {
                 int userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                await _customerService.DeleteCustomerDetailsAsync(userId,customerId);
+                await _customerService.DeleteCustomerDetailsAsync(userId, customerId);
                 return Ok(new { success = true, message = "Customer deleted successfully" });
             }
             catch (Exception ex)
@@ -103,10 +103,23 @@ namespace BookStore_App_Backend.Controllers
             try
             {
                 var customer = await _customerService.GetCustomerByIdAsync(customerId);
-                return Ok(new { success = true, data = customer });
+                return Ok(new { success = true, message="Customer Fetched successfully",data = customer });
             }
             catch (Exception ex)
             {
+                return NotFound(new { success = false, message = ex.Message });
+            }
+        }
+        [HttpGet("getCustomerId")]
+        public async Task<IActionResult> GetCustomerId()
+        {
+            try
+            {
+                int userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                CustomerDetail customer = await _customerService.GetCustomerId(userId);
+                return Ok(new { success = true,message="Customer Id Fetched Successfully",data=customer});
+            }
+            catch (Exception ex) {
                 return NotFound(new { success = false, message = ex.Message });
             }
         }

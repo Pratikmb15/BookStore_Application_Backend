@@ -176,7 +176,7 @@ namespace RepoLayer.Services
                     await _context.SaveChangesAsync();
                     if (book != null)
                     {
-                        book.quantity -= item.bookQuantity;
+                        book.quantity =book.quantity-item.bookQuantity;
                         _context.Books.Update(book);
                         await _context.SaveChangesAsync();
                     }
@@ -188,7 +188,7 @@ namespace RepoLayer.Services
         }
         public bool CheckCartItemExists(int userId, int bookId)
         {
-            var cartItem = _context.Carts.FirstOrDefault(c => c.userId == userId && c.bookId == bookId);
+            var cartItem = _context.Carts.FirstOrDefault(c => c.userId == userId && c.bookId == bookId && c.isPurchased==false);
             return cartItem != null;
         }
         public int getCartId(int userId, int bookId)
@@ -200,5 +200,6 @@ namespace RepoLayer.Services
             }
             return 0;
         }
+
     }
 }

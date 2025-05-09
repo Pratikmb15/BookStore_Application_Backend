@@ -46,5 +46,9 @@ namespace BusinessLayer.Services
         {
             return _customerRepoService.UpdateCustomerDetailsAsync(userId, customerId, customer);
         }
+        public async Task<CustomerDetail> GetCustomerId(int userId)
+        {
+            return await _customerRepoService.GetCustomerId(userId);
+        }
     }
 }

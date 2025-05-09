@@ -474,6 +474,29 @@
         }
       }
     },
+    "/api/Cart/getCartIdBy/{bookId}": {
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Cart/purchase": {
       "post": {
         "tags": [
@@ -603,6 +626,18 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/customer/getCustomerId": {
+      "get": {
+        "tags": [
+          "customer"
         ],
         "responses": {
           "200": {

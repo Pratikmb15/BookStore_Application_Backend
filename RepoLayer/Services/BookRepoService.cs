@@ -126,7 +126,7 @@ namespace RepoLayer.Services
         }
         public List<Book> GetBooksByPageNumber(int pageNumber)
         {
-            int pageSize = 6;
+            int pageSize = 12;
             return _context.Books
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)

@@ -103,5 +103,13 @@ namespace RepoLayer.Services
 
             return await _context.Customers.AnyAsync(c => c.userId == userId);
         }
+        public async Task<CustomerDetail> GetCustomerId(int userId)
+        {
+            if(userId <= 0) 
+            {
+                throw new ArgumentException("Invalid User Id"); 
+            }
+            return await _context.Customers.FirstOrDefaultAsync(c => c.userId == userId);
+        }
     }
 }
